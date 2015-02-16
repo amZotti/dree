@@ -22,6 +22,24 @@ window.addEventListener("keydown", function (event) {
 function moveCharacter(dir, character, fn) {
   var coord = d3.select(character).style(dir);
   coord = coord.split("px").join(".").split(".")[0];
-  coord = fn(+coord, 50) + 'px'; 
+  coord = fn(+coord, 200) + 'px'; 
   d3.select(character).transition().style(dir, coord);
 }
+
+function rand(start, end) {
+  if (end === undefined) {
+    end = start;
+    start = 0;
+  }
+  return Math.floor(Math.random() * (end - start)) + start;
+}
+
+
+d3.select('main')
+  .selectAll('.bots')
+  .data(d3.range(15))
+  .enter()
+  .append('div')
+  .style('top', function() { return rand(100, window.innerHeight)})
+  .style('left', function() { return rand(100, window.innerWidth)})
+  .attr('class', 'bots')

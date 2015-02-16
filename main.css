@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  overflow: hidden;
 }
 
 #player {
@@ -10,4 +11,12 @@ body {
   left: 700px;
   border-radius: 30px;
   position: absolute;
+}
+
+.bots {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  border-radius: 300px;
+  background-color: red;
 }
